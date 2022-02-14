@@ -1,15 +1,33 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { TeamResult } from 'src/app/models/team-mode';
+import { RapidApiService } from 'src/app/services/rapid-api.service';
 
 @Component({
-  selector: 'app-home-page',
-  templateUrl: './home-page.component.html',
-  styleUrls: ['./home-page.component.scss']
+    selector: 'app-home-page',
+    templateUrl: './home-page.component.html',
+    styleUrls: ['./home-page.component.scss']
 })
-export class HomePageComponent implements OnInit {
+export class HomePageComponent implements OnInit, OnDestroy {
 
-  constructor() { }
+    teams!: TeamResult[];
+    teamSubscription!: Subscription;
 
-  ngOnInit(): void {
-  }
+    constructor(private rapidpiService: RapidApiService) { }
+
+    ngOnInit(): void {
+        this.getTeams();
+    }
+
+    ngOnDestroy(): void {
+        this.teamSubscription?.unsubscribe();
+    }
+
+    getTeams(): void {
+        this.teamSubscription = this.rapidpiService.getTeams()
+            .subscribe((res: TeamResult[]) => {
+                this.teams = res;
+            })
+    }
 
 }

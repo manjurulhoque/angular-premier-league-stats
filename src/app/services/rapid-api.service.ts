@@ -1,9 +1,19 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable, of } from 'rxjs';
+import { TeamResult } from '../models/team-mode';
+
+import { teams } from '../fake-data';
 
 @Injectable({
-  providedIn: 'root'
+    providedIn: 'root'
 })
 export class RapidApiService {
 
-  constructor() { }
+    constructor(private http: HttpClient) { }
+
+    getTeams(): Observable<TeamResult[]> {
+        // return this.http.get<TeamResult[]>('https://api-football-v1.p.rapidapi.com/v3/teams?league=39&season=2021');
+        return of(teams);
+    }
 }
