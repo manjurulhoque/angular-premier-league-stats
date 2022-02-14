@@ -8,13 +8,16 @@ import { HomePageComponent } from './pages/home-page/home-page.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { StandingsPageComponent } from './pages/standings-page/standings-page.component';
 import { TokenInterceptor } from './interceptors/token.interceptor';
+import { CardComponent } from './components/card/card.component';
 
 @NgModule({
     declarations: [
         AppComponent,
         HomePageComponent,
+        StandingsPageComponent,
+
         NavbarComponent,
-        StandingsPageComponent
+        CardComponent
     ],
     imports: [
         BrowserModule,

@@ -1,0 +1,17 @@
+<a [routerLink]="['/']">
+    <div class="w-full pl-5 pr-5 mb-5 lg:pl-2 lg:pr-2">
+        <div
+            class="bg-gray-600 rounded-lg m-h-50 p-2 transform hover:translate-y-2 hover:shadow-xl transition duration-300">
+            <figure class="mb-2">
+                <img src="{{ teamResult?.team?.logo }}" alt="" class="h-30 ml-auto mr-auto" />
+            </figure>
+            <div class="rounded-lg p-4 flex flex-col">
+                <div class="text-center text-white">
+                    <h4>
+                        {{ teamResult?.team?.name }}
+                    </h4>
+                </div>
+            </div>
+        </div>
+    </div>
+</a>
