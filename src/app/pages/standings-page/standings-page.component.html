@@ -1,1 +1,38 @@
-<p>standings-page works!</p>
+<div class="min-h-screen flex items-center justify-center">
+    <div class="pt-10 content-center">
+        <h1>Standings</h1>
+        <table class="w-full whitespace-nowrap">
+            <tbody>
+                <ng-container *ngFor="let standing of standings">
+                    <tr class="focus:outline-none h-16 border border-gray-100 rounded">
+                        <td class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            {{ standing.rank }}
+                        </td>
+                        <td class="py-4 px-6">
+                            <div class="w-10 h-8 flex-shrink-0 mr-2 sm:mr-3">
+                                <img class="rounded-full" src="{{ standing.team.logo }}" width="40" height="40"
+                                    alt="Alex Shatov">
+                            </div>
+                        </td>
+                        <td class="py-4 px-6 text-sm text-gray-900 whitespace-nowrap dark:text-gray-400">
+                            {{ standing.team.name }}
+                        </td>
+                        <td class="py-4 px-6 text-sm text-gray-900 whitespace-nowrap dark:text-gray-400">
+                            {{ standing.points }}Pts
+                        </td>
+                        <td class="py-4 px-6 text-sm text-gray-900 whitespace-nowrap dark:text-gray-400">
+                            {{ standing.all.played }}MP
+                        </td>
+                        <td class="py-4 px-6 text-sm text-gray-900 whitespace-nowrap dark:text-gray-400">
+                            {{ standing.all.win }}W
+                        </td>
+                        <td class="py-4 px-6 text-sm text-gray-900 whitespace-nowrap dark:text-gray-400">
+                            {{ standing.all.lose }}L
+                        </td>
+                    </tr>
+                    <tr class="h-3"></tr>
+                </ng-container>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -13,7 +13,7 @@ export class HomePageComponent implements OnInit, OnDestroy {
     teams!: TeamResult[];
     teamSubscription!: Subscription;
 
-    constructor(private rapidpiService: RapidApiService) { }
+    constructor(private rapidApiService: RapidApiService) { }
 
     ngOnInit(): void {
         this.getTeams();
@@ -24,7 +24,7 @@ export class HomePageComponent implements OnInit, OnDestroy {
     }
 
     getTeams(): void {
-        this.teamSubscription = this.rapidpiService.getTeams()
+        this.teamSubscription = this.rapidApiService.getTeams()
             .subscribe((res: TeamResult[]) => {
                 this.teams = res;
             })
